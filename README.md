@@ -10,6 +10,6 @@
 
 > Para coemçar alguem do grupo deverá realizar um fork desse projeto e disponibilizar para os demais do grupo.
 
-> Após o fork do repositorio e a clonagem do mesmo para o ambiente local executar o dotnet restore.
+> Após o fork do repositorio e a clonagem do mesmo para o ambiente local executar o  ```dotnet restore```.
 
-> Ao instalar as depedencias do sistema dentro da pasta main executar dotnet run para verificação inicial se a execução está ocorrendo.
+> Ao instalar as depedencias do sistema dentro da pasta main executar ```dotnet run``` para verificação inicial se a execução está ocorrendo.
