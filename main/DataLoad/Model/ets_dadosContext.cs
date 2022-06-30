@@ -60,15 +60,15 @@ namespace main.DataLoad
 
             modelBuilder.Entity<DiagnosticosPorClasse>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Id).HasName("id");
 
                 entity.ToTable("diagnosticos_por_classe");
 
                 entity.Property(e => e.ClasseSocial).HasColumnName("classe_social");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
+                //entity.Property(e => e.Id)
+                //    .ValueGeneratedOnAdd()
+                //    .HasColumnName("id");
 
                 entity.Property(e => e.QuantidadeDiagnosticos).HasColumnName("quantidade_diagnosticos");
             });
