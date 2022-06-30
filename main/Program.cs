@@ -13,6 +13,7 @@ class main{
 
         SourceContext sc = new SourceContext();
 
+
         using var context = new DataLoad.ets_dadosContext();
         context.Database.EnsureCreated();
 
