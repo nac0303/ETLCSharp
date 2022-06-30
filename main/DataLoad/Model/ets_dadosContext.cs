@@ -127,7 +127,7 @@ namespace main.DataLoad
 
             modelBuilder.Entity<NewTable>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(p => p.Id).HasName("id");
 
                 entity.ToTable("NewTable");
 
@@ -137,9 +137,9 @@ namespace main.DataLoad
                     .HasColumnName("doenca")
                     .UseCollation("SQL_Latin1_General_CP1_CI_AS");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
+                //entity.Property(e => e.Id)
+                //    .ValueGeneratedOnAdd()
+                //    .HasColumnName("id");
 
                 entity.Property(e => e.MediaIdade).HasColumnName("media_idade");
 

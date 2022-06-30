@@ -32,8 +32,9 @@ class LoadContext {
         }
 
         foreach (var r in table)
-            Console.WriteLine($"{r.Doenca}, {r.MediaIdade}, {r.MediaSalarial}");
-
-        Console.WriteLine("\n\n");
+        {
+            context.NewTables.Add(r);
+        }
+        context.SaveChanges();
     }
 }
