@@ -9,13 +9,15 @@ namespace main;
 class main{
     public static void Main(string[] args){
 
-       LoadContext lc = new LoadContext();
+        LoadContext lc = new LoadContext();
 
-       SourceContext sc = new SourceContext();
+        SourceContext sc = new SourceContext();
 
+        using var context = new DataLoad.ets_dadosContext();
+        context.Database.EnsureCreated();
 
-       lc.conn();
+        sc.conn();
 
-       sc.conn();
+        lc.conn();
     }
 }
