@@ -53,12 +53,25 @@ class SourceContext{
             IdClasseSocial = p.IdClasseSocial,
             Doenca = di.Doenca
         })
-        .Join(context.ClasseSocials, di => di.IdClasseSocial, c => c.Id, (di, c) => new DataLoad.NewTable
+        .Join(context.ClasseSocials, di => di.IdClasseSocial, c => c.Id, (di, c) => new
         {
-            MediaIdade = di.Idade,
+            IdEstado = di.IdEstado,
             MediaSalarial = (int)(c.SalarioPiso + c.SalarioTeto) / 2,
             Doenca = di.Doenca
-        }).ToList();
+        })
+        .Join(context.Estados, p => p.IdEstado, e => e.Id, (p, e) => new
+        {
+            IdRegiao = e.IdRegiao,
+            MediaSalarial = p.MediaSalarial,
+            Doenca = p.Doenca
+        })
+        .Join(context.Regioes, e => e.IdRegiao, r => r.Id, (e, r) => new DataLoad.OcorrenciasClasseSocialRegiao
+        {
+            NomeDoença = e.Doenca,
+            ClasseSocial = e.MediaSalarial.ToString(),
+            Regiao = r.NomeRegiao
+        })
+        .ToList();
 
         return dados;
     }
