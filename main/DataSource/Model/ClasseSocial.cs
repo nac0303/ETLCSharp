@@ -15,5 +15,26 @@ namespace main.DataSource
         public decimal SalarioTeto { get; set; }
 
         public virtual ICollection<Paciente> Pacientes { get; set; }
+
+        public static List<object> GetAll()
+        {
+            var list = new List<object>();
+            using (var context = new analytic_dataContext())
+            {
+                var query = context.ClasseSocials;
+                foreach (var q in query)
+                {
+                    list.Add(new
+                    {
+                        Id = q.Id,
+                        SalarioPiso = q.SalarioPiso,
+                        SalarioTeto = q.SalarioTeto
+                    });
+                }
+            }
+
+            return list;
+
+        }
     }
 }

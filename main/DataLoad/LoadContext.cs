@@ -1,5 +1,5 @@
 using System;
-
+using main.DataSource;
 using Microsoft.EntityFrameworkCore;
 
 namespace main.DataLoad;
@@ -10,6 +10,15 @@ class LoadContext {
         SalarioDoencaIdade();
         QtdCasosClasseSocialRegiao();
         Console.WriteLine("implemente o load context e seus metodos de cargas");
+        DiagClassAdd();
+    }
+
+    public void DiagClassAdd()
+    {
+        foreach(var item in DataSource.SourceContext.DiagnosticosClasse())
+        {
+            item.Save();
+        }
     }
 
     public void SalarioDoencaIdade()
